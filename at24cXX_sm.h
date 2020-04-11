@@ -29,6 +29,8 @@
 	#include "stdio.h"
 	#include <string.h>
 
+	#include "at24cXX_local_config.h"
+
 /*
 **************************************************************************
 *								    DEFINES

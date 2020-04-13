@@ -24,12 +24,17 @@
 *								INCLUDE FILES
 **************************************************************************
 */
+
 	#include "main.h"
 	#include "gpio.h"
+	#include "usart.h"
+	#include "i2c.h"
+
 	#include "stdio.h"
 	#include <string.h>
 
 	#include "at24cXX_local_config.h"
+	#include "boryviter_local_config.h"
 
 /*
 **************************************************************************
@@ -61,6 +66,7 @@
 **************************************************************************
 */
 
+void At24cXX_Init (void) ;
 
 #endif /* at24cXX_SM_H_INCLUDED */
 

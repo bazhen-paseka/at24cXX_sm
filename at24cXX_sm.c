@@ -105,16 +105,21 @@ void At24cXX_Init (void) {
 }
 //************************************************************************
 
-void  Write_to_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16) {
+HAL_StatusTypeDef  Write_to_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16) {
 	uint16_t eeprom_memory_address_u16 = 32 * _eeprom_packet_u16;
-	HAL_I2C_Mem_Write(&hi2c1, EEPROM_DEVICE_ADDRESS, eeprom_memory_address_u16, I2C_MEMADD_SIZE_16BIT, _str, _size_of_str_u8, 100);
+	HAL_StatusTypeDef operation_result_td = HAL_ERROR;
+	operation_result_td = HAL_I2C_Mem_Write(&hi2c1, EEPROM_DEVICE_ADDRESS, eeprom_memory_address_u16, I2C_MEMADD_SIZE_16BIT, _str, _size_of_str_u8, 100);
+	return operation_result_td;
 }
 //************************************************************************
 
-void Read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16) {
+HAL_StatusTypeDef Read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16) {
 	while (HAL_I2C_IsDeviceReady(&hi2c1, EEPROM_DEVICE_ADDRESS, 100, 100) != HAL_OK);				/* Wait till device ready */
 	uint16_t eeprom_memory_address_u16 = 32 * _eeprom_packet_u16;
-	HAL_I2C_Mem_Read(&hi2c1, EEPROM_DEVICE_ADDRESS, eeprom_memory_address_u16, I2C_MEMADD_SIZE_16BIT, (uint8_t *)_str, 32, 100);		/* EEPROM read */
+	HAL_StatusTypeDef operation_result_td = HAL_ERROR;
+
+	operation_result_td = HAL_I2C_Mem_Read(&hi2c1, EEPROM_DEVICE_ADDRESS, eeprom_memory_address_u16, I2C_MEMADD_SIZE_16BIT, (uint8_t *)_str, 32, 100);		/* EEPROM read */
+	return operation_result_td;
 }
 //************************************************************************
 /*

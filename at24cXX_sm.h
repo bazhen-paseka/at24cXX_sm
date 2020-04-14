@@ -67,8 +67,8 @@
 */
 
 void At24cXX_Init (void) ;
-HAL_StatusTypeDef  Write_to_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
-HAL_StatusTypeDef Read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
+HAL_StatusTypeDef  AT24cXX_write_to_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
+HAL_StatusTypeDef AT24cXX_read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
 
 #endif /* at24cXX_SM_H_INCLUDED */
 

@@ -66,9 +66,10 @@
 **************************************************************************
 */
 
-void At24cXX_Init (void) ;
-HAL_StatusTypeDef  AT24cXX_write_to_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
-HAL_StatusTypeDef AT24cXX_read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16);
+	void				AT24cXX_init (void)																				;
+	void				AT24cXX_scan_I2C_bus(I2C_HandleTypeDef * _hi2c, UART_HandleTypeDef * _huart)					;
+	HAL_StatusTypeDef	AT24cXX_write_to_EEPROM (uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16)	;
+	HAL_StatusTypeDef	AT24cXX_read_from_EEPROM(uint8_t * _str, uint8_t _size_of_str_u8, uint16_t _eeprom_packet_u16)	;
 
 #endif /* at24cXX_SM_H_INCLUDED */
 
